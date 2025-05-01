@@ -45,6 +45,14 @@ With these updates the v2 model can be trained **without 3D models** to achieve 
 If you find this project useful in your research, please consider citing:
 
 ```
+@article{epropnpv2,
+  author={Chen, Hansheng and Tian, Wei and Wang, Pichao and Wang, Fan and Xiong, Lu and Li, Hao},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={EPro-PnP: Generalized End-to-End Probabilistic Perspective-N-Points for Monocular Object Pose Estimation}, 
+  year={2024},
+  doi={10.1109/TPAMI.2024.3354997}
+}
+
 @inproceedings{epropnp, 
   author = {Hansheng Chen and Pichao Wang and Fan Wang and Wei Tian and Lu Xiong and Hao Li, 
   title = {EPro-PnP: Generalized End-to-End Probabilistic Perspective-n-Points for Monocular Object Pose Estimation}, 
