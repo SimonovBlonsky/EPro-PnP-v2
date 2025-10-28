@@ -142,3 +142,5 @@ checkpoints/
 *.patch
 viz/
 submit/
+EPro-PnP-6DoF_v2/exp/
+EPro-PnP-6DoF_v2/dataset/

@@ -153,7 +153,7 @@ def update_config_from_file(_config, config_file, check_necessity=True):
     config = copy.deepcopy(_config)
     with open(config_file) as f:
         # exp_config = edict(yaml.load(f, Loader=yaml.FullLoader))
-        exp_config = edict(yaml.load(f))
+        exp_config = edict(yaml.load(f, Loader=yaml.SafeLoader))
         for k, v in exp_config.items():
             if k in config:
                 if isinstance(v, dict):

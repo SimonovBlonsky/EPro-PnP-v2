@@ -14,7 +14,7 @@ from .common import evaluate_pnp, pnp_normalize, pnp_denormalize
 
 def solve_wrapper(b, A):
     if A.numel() > 0:
-        return torch.solve(b, A)[0]
+        return torch.linalg.solve(A, b)
     else:
         return b + A.reshape_as(b)
 

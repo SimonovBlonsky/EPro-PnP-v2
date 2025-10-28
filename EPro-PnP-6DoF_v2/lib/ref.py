@@ -22,10 +22,10 @@ cache_dir = os.path.join(root_dir, 'dataset_cache')
 bg_dir = os.path.join(dataset_dir, 'bg_images')
 
 # linemod dataset
-lm_dir = os.path.join(dataset_dir, 'lm')
+lm_dir = os.path.join(dataset_dir, 'lm_full')
 lm_model_dir = os.path.join(lm_dir, 'models')
 lm_model_info_pth = os.path.join(lm_dir, 'models', 'models_info.txt')
-lm_train_imgn_dir = os.path.join(lm_dir, 'imgn')
+lm_train_imgn_dir = os.path.join(lm_dir, 'imgn_train')
 lm_train_real_dir = os.path.join(lm_dir, 'real_train')
 lm_test_dir = os.path.join(lm_dir, 'real_test')
 

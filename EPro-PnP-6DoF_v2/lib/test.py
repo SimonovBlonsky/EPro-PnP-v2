@@ -40,7 +40,7 @@ def test(epoch, cfg, data_loader, model, obj_vtx, obj_info, criterions):
 
     model.eval()
     Eval = Evaluation(cfg.dataset, obj_info, obj_vtx)
-    if 'trans' in cfg.pytorch.task.lower():
+    if 'trans' in cfg.pytorch.task.lower(): # ?
         Eval_trans = Evaluation(cfg.dataset, obj_info, obj_vtx)
 
     if not cfg.test.ignore_cache_file:
@@ -99,7 +99,9 @@ def test(epoch, cfg, data_loader, model, obj_vtx, obj_info, criterions):
 
     for i, (obj, obj_id, inp, pose, c_box, s_box, box, trans_local) in enumerate(data_loader):
         if cfg.pytorch.gpu > -1:
-            inp_var = inp.cuda(cfg.pytorch.gpu, async=True).float()
+            # inp_var = inp.cuda(cfg.pytorch.gpu, async=True).float()
+            device = torch.device(f"cuda:{cfg.pytorch.gpu}" if torch.cuda.is_available() else "cpu")
+            inp_var = inp.to(device, non_blocking=True).float()
             c_box = c_box.to(inp_var.device).float()
             s_box = s_box.to(inp_var.device).float()
             box = box.to(inp_var.device).float()

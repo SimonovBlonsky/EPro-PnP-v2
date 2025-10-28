@@ -24,6 +24,7 @@ import pprint
 import torch
 import torch.utils.data
 import matplotlib
+
 matplotlib.use('Agg')
 import cv2
 # cv2.setNumThreads(0)
@@ -72,7 +73,7 @@ def main():
     for obj in tqdm(cfg.dataset.classes):
         obj_vtx[obj] = load_ply_vtx(os.path.join(ref.lm_model_dir, '{}/{}.ply'.format(obj, obj)))
     obj_info = LM.load_lm_model_info(ref.lm_model_info_pth)
-
+    print(cfg.pytorch.test)
     if cfg.pytorch.test:
         _, preds = test(0, cfg, test_loader, network, obj_vtx, obj_info, criterions)
         if preds is not None:

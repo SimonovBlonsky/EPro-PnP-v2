@@ -61,14 +61,16 @@ def train(epoch, cfg, data_loader, model, obj_info, criterions, optimizer=None):
     for i, (obj, obj_id, inp, target, loss_msk, trans_local, pose, c_box, s_box, box) in enumerate(data_loader):
         cur_iter = i + (epoch - 1) * num_iters
         if cfg.pytorch.gpu > -1:
-            inp_var = inp.cuda(cfg.pytorch.gpu, async=True).float()
-            target_var = target.cuda(cfg.pytorch.gpu, async=True).float()
-            loss_msk_var = loss_msk.cuda(cfg.pytorch.gpu, async=True).float()
-            trans_local_var = trans_local.cuda(cfg.pytorch.gpu, async=True).float()
-            pose_var = pose.cuda(cfg.pytorch.gpu, async=True).float()
-            c_box_var = c_box.cuda(cfg.pytorch.gpu, async=True).float()
-            s_box_var = s_box.cuda(cfg.pytorch.gpu, async=True).float()
+            device = torch.device(f"cuda:{cfg.pytorch.gpu}")
+            inp_var = inp.to(device, non_blocking=True).float()
+            target_var = target.to(device, non_blocking=True).float()
+            loss_msk_var = loss_msk.to(device, non_blocking=True).float()
+            trans_local_var = trans_local.to(device, non_blocking=True).float()
+            pose_var = pose.to(device, non_blocking=True).float()
+            c_box_var = c_box.to(device, non_blocking=True).float()
+            s_box_var = s_box.to(device, non_blocking=True).float()
         else:
+            device = torch.device("cpu")
             inp_var = inp.float()
             target_var = target.float()
             loss_msk_var = loss_msk.float()

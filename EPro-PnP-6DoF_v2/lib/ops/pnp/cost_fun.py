@@ -108,7 +108,7 @@ class HuberPnPCost(object):
             delta=self.delta,
             eps=self.eps)
 
-
+# 实际用的是这个
 class AdaptiveHuberPnPCost(HuberPnPCost):
 
     def __init__(self,
